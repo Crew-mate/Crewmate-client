@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body{
+  background-image: linear-gradient(to right, #C4DBF5 50%, #1D1E6B 50%);    
+  width: 500px;    
+  height: 300px;
+}
+
+.page{
+  position: absolute;
+  top: 7%;
+  bottom: 7%;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 20px;
+  background-image: url('imges/Login_img.svg');
+  background-repeat: no-repeat;
+  background-position:90%;
+  left: 50%;
+  transform: translate(-50%,0);
+  background-color: rgba(255, 255, 255, 74%);
+  border-radius: 30px;
+}
+.contentWrap{
+  margin-left: 7%;
+  margin-top: 4%;
+}
+.title{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+  color: #091F5B;
+  margin-top: 6%;
+  margin-left: 10%;
+}
+.subtitle{
+  font-family: "K2D", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  margin-left: 8%;
+}
+
+.submitBtn{
+  background-color: #091F5B;
+  color: #fff;
+  border-radius: 10px;
+  width: 406px;
+  height: 49px;
+  margin-top: 4%;
+  margin-left: 6%;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+.submitBtn:disabled{
+  background-color:#9a9a9a;
+  color: #fff;
+}
+
+.input::placeholder{
+  color: #b1b1b1;
+}
+.inputWrap{
+  display: flex;
+  border-radius: 8px;
+  padding: 13px;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 74%);
+  border: 1px solid #e2e0e0;
+  width: 28%;
+}
+
+.inputWrap:focus-within{
+  border: 1px solid #091F5B;
+}
+
+.input{
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.inputTitle{
+  font-size: 12px;
+  margin-left: 5px;
+  margin-top: 2%;
+}
+
+.errorMessageWrap{
+  font-size: 11px;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #ff3b3b;
+  font-weight: 600;
+}
