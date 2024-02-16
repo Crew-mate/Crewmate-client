@@ -25,7 +25,7 @@ export default function Login() {
     const handleEmail = (e) => {
       setEmail(e.target.value);
       const regex =
-      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+      /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
       if (regex.test(e.target.value)) {
         setEmailValid(true);
       } else {
