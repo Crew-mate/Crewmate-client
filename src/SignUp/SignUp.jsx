@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../SignUp/SignUp.css'
+import axios from 'axios'
 
 
 const SignUp = () => {
@@ -55,12 +56,20 @@ const SignUp = () => {
     }
   };
 
-  const onClickConfirmButton = () => {
-    const newUser = { name, email, pw };
-    console.log(newUser); 
-    alert('회원가입에 성공했습니다.');
-    navigate('/login');
+  const onClickConfirmButton = async() => {
+    const newUser = { name, email, password };
+    try{
+      const response=await axios.post('http://localhost:5000/users/signup',newUser)
+      if(response.status===201){
+        alert('회원가입에 성공했습니다.');
+        navigate('/login');
+      }
+    }catch(error){
+      alert('회원가입에 실패했습니다');
+      console.log(error);
+    }
   };
+
   return (
     <div className="page">
       <div className="title">Sign up</div>
