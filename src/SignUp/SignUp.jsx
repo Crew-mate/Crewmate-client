@@ -2,12 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../SignUp/SignUp.css'
+import axios from 'axios'
+
 
 const SignUp = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [pw, setPw] = useState('');
+  const [password, setPw] = useState('');
 
   const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
@@ -35,7 +37,7 @@ const SignUp = () => {
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    const regex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
     if (regex.test(e.target.value)) {
       setEmailValid(true);
     } else {
@@ -54,11 +56,18 @@ const SignUp = () => {
     }
   };
 
-  const onClickConfirmButton = () => {
-    const newUser = { name, email, pw };
-    console.log(newUser); 
-    alert('회원가입에 성공했습니다.');
-    navigate('/login');
+  const onClickConfirmButton = async() => {
+    const newUser = { name, email, password };
+    try{
+      const response=await axios.post('http://localhost:5000/users/signup',newUser)
+      if(response.status===201){
+        alert('회원가입에 성공했습니다.');
+        navigate('/login');
+      }
+    }catch(error){
+      alert('회원가입에 실패했습니다');
+      console.log(error);
+    }
   };
 
   return (
@@ -104,12 +113,12 @@ const SignUp = () => {
             className="input"
             type="password"
             placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-            value={pw}
+            value={password}
             onChange={handlePw}
           />
         </div>
         <div className="errorMessageWrap">
-          {!pwValid && pw.length > 0 && (
+          {!pwValid && password.length > 0 && (
             <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
           )}
         </div>
