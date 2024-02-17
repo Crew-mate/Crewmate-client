@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../SignUp/SignUp.css'
 
+
 const SignUp = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [pw, setPw] = useState('');
+  const [password, setPw] = useState('');
 
   const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
@@ -60,7 +61,6 @@ const SignUp = () => {
     alert('회원가입에 성공했습니다.');
     navigate('/login');
   };
-
   return (
     <div className="page">
       <div className="title">Sign up</div>
@@ -104,12 +104,12 @@ const SignUp = () => {
             className="input"
             type="password"
             placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-            value={pw}
+            value={password}
             onChange={handlePw}
           />
         </div>
         <div className="errorMessageWrap">
-          {!pwValid && pw.length > 0 && (
+          {!pwValid && password.length > 0 && (
             <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
           )}
         </div>
