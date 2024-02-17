@@ -101,7 +101,7 @@ export default function Login() {
 
       <div>
         <div>
-          <button onClick={handleSignUpClick}>Login</button>
+          <button onClick={handleSignUpClick} className="SignUp_btn">회원가입</button>
         </div>
         <button onClick={onClickConfirmButton} disabled={notAllow} className="submitBtn">
           Log in
