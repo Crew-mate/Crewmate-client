@@ -103,3 +103,18 @@ body{
   font-weight: 600;
 }
 
+.SignUp_btn{
+  cursor: pointer;
+  text-decoration: underline;
+  transition: text-decoration 0.3s ease;
+  border: 0;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0%);
+  color: #9a9a9a  ;
+  margin-left: 7%;
+  margin-top: 1%;
+}
+
+.SignUp_btn:hover{
+  text-decoration: none;
+}

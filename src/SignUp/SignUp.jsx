@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-import "../SignUp/SignUp.css"
+import { useNavigate } from 'react-router-dom';
+import '../SignUp/SignUp.css'
 
 const SignUp = () => {
 
@@ -13,6 +13,8 @@ const SignUp = () => {
   const [emailValid, setEmailValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (nameValid && emailValid && pwValid) {
@@ -33,7 +35,6 @@ const SignUp = () => {
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    // Email validation logic
     const regex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (regex.test(e.target.value)) {
       setEmailValid(true);
@@ -57,7 +58,7 @@ const SignUp = () => {
     const newUser = { name, email, pw };
     console.log(newUser); 
     alert('회원가입에 성공했습니다.');
-    // navigate('/login');
+    navigate('/login');
   };
 
   return (
