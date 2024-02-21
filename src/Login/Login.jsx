@@ -1,65 +1,57 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 
-// const User = {
-//   email: 'test@example.com',
-//   pw: 'test2323@@@'
-// }
-
 export default function Login() {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPw] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPw] = useState('');
 
-    const [emailValid, setEmailValid] = useState(false);
-    const [pwValid, setPwValid] = useState(false);
-    const [notAllow, setNotAllow] = useState(true);
+  const [emailValid, setEmailValid] = useState(false);
+  const [pwValid, setPwValid] = useState(false);
+  const [notAllow, setNotAllow] = useState(true);
 
-    useEffect(() => {
-      if(emailValid && pwValid) {
-        setNotAllow(false);
-        return;
-      }
-      setNotAllow(true);
-    }, [emailValid, pwValid]);
-
-    const handleEmail = (e) => {
-      setEmail(e.target.value);
-      const regex =
-      /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
-      if (regex.test(e.target.value)) {
-        setEmailValid(true);
-      } else {
-        setEmailValid(false);
-      }
-    };
-    const handlePw = (e) => {
-      setPw(e.target.value);
-      const regex =
-        /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-      if (regex.test(e.target.value)) {
-        setPwValid(true);
-      } else {
-        setPwValid(false);
-      }
-    };
-    const onClickConfirmButton = async() => {
-      const data={email,password:password}
-      try{
-        const response = await axios.post('http://localhost:5000/users/login',data)
-        if(response.status===200){
-          alert('로그인에 성공하셨습니다')
-        }
-      }catch(error){
-          alert('회원이 아닙니다')
-      }
+  useEffect(() => {
+    if (emailValid && pwValid) {
+      setNotAllow(false);
+      return;
     }
+    setNotAllow(true);
+  }, [emailValid, pwValid]);
 
-    const handleSignUpClick = () => {
-      navigate('./signup');
-    };
-    return (
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    const regex =
+      /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i;
+    if (regex.test(e.target.value)) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false);
+    }
+  };
+  const handlePw = (e) => {
+    setPw(e.target.value);
+    const regex =
+      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    if (regex.test(e.target.value)) {
+      setPwValid(true);
+    } else {
+      setPwValid(false);
+    }
+  };
+  const onClickConfirmButton = async () => {
+    const data = { email, password: password }
+    try {
+      const response = await axios.post('http://localhost:5000/users/login', data)
+      if (response.status === 200) {
+        alert('로그인에 성공하셨습니다')
+      }
+    } catch (error) {
+      alert('회원이 아닙니다')
+    }
+  }
+
+  return (
+    <div className='round'>
       <div className="page">
         <div className="title">
           Crew mate
@@ -104,13 +96,14 @@ export default function Login() {
         </div>
 
         <div>
-        <div>
-          <button onClick={handleSignUpClick} className="SignUp_btn">회원가입</button>
-        </div>
+          <div>
+            <button className="SignUp_btn"><Link to="/signup">회원가입</Link></button>
+          </div>
           <button onClick={onClickConfirmButton} disabled={notAllow} className="submitBtn">
             Log in
           </button>
         </div>
       </div>
-    );
+    </div>
+  );
 }
