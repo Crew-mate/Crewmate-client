@@ -1,0 +1,40 @@
+/* calendar.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.cal_page {
+  position: relative;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.calendar {
+  margin-top: 4%;
+}
+
+.fc{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #091F5B;
+}
+
+
+.add_btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 10px;
+  background-color: #091F5B;
+  color: #fff;
+  padding: 10px 20px; /* 버튼 내부 여백 설정 */
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(9, 31, 91, 0.3); /* 그림자 효과 추가 */
+  transition: transform 0.3s ease; /* 변환 효과를 0.3초로 지정 */
+}
+
+.add_btn:hover {
+  transform: translateY(-3px); /* 마우스를 올렸을 때 버튼을 아래로 3px 이동 */
+}
+

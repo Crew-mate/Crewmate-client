@@ -56,77 +56,79 @@ const SignUp = () => {
     }
   };
 
-  const onClickConfirmButton = async() => {
+  const onClickConfirmButton = async () => {
     const newUser = { name, email, password };
-    try{
-      const response=await axios.post('http://localhost:5000/users/signup',newUser)
-      if(response.status===201){
+    try {
+      const response = await axios.post('http://localhost:5000/users/signup', newUser)
+      if (response.status === 201) {
         alert('회원가입에 성공했습니다.');
         navigate('/login');
       }
-    }catch(error){
+    } catch (error) {
       alert('회원가입에 실패했습니다');
       console.log(error);
     }
   };
 
   return (
-    <div className="page">
-      <div className="title">Sign up</div>
+    <div className='round'>
+      <div className="page">
+        <div className="title">Sign up</div>
 
-      <div className="contentWrap">
-        <div className="inputTitle">이름</div>
-        <div className="inputWrap">
-          <input
-            className="input"
-            type="text"
-            placeholder="이름을 입력하세요"
-            value={name}
-            onChange={handleName}
-          />
-        </div>
-        <div className="errorMessageWrap">
-          {!nameValid && name.length > 0 && <div>이름을 입력해주세요.</div>}
+        <div className="contentWrap">
+          <div className="inputTitle">이름</div>
+          <div className="inputWrap">
+            <input
+              className="input"
+              type="text"
+              placeholder="이름을 입력하세요"
+              value={name}
+              onChange={handleName}
+            />
+          </div>
+          <div className="errorMessageWrap">
+            {!nameValid && name.length > 0 && <div>이름을 입력해주세요.</div>}
+          </div>
+
+          <div style={{ marginTop: '26px' }} className="inputTitle">
+            이메일 주소
+          </div>
+          <div className="inputWrap">
+            <input
+              className="input"
+              type="text"
+              placeholder="test@gmail.com"
+              value={email}
+              onChange={handleEmail}
+            />
+          </div>
+          <div className="errorMessageWrap">
+            {!emailValid && email.length > 0 && <div>올바른 이메일을 입력해주세요.</div>}
+          </div>
+
+          <div style={{ marginTop: '26px' }} className="inputTitle">
+            비밀번호
+          </div>
+          <div className="inputWrap">
+            <input
+              className="input"
+              type="password"
+              placeholder="영문, 숫자, 특수문자 포함 8자 이상"
+              value={password}
+              onChange={handlePw}
+            />
+          </div>
+          <div className="errorMessageWrap">
+            {!pwValid && password.length > 0 && (
+              <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+            )}
+          </div>
         </div>
 
-        <div style={{ marginTop: '26px' }} className="inputTitle">
-          이메일 주소
-        </div>
-        <div className="inputWrap">
-          <input
-            className="input"
-            type="text"
-            placeholder="test@gmail.com"
-            value={email}
-            onChange={handleEmail}
-          />
-        </div>
-        <div className="errorMessageWrap">
-          {!emailValid && email.length > 0 && <div>올바른 이메일을 입력해주세요.</div>}
-        </div>
-
-        <div style={{ marginTop: '26px' }} className="inputTitle">
-          비밀번호
-        </div>
-        <div className="inputWrap">
-          <input
-            className="input"
-            type="password"
-            placeholder="영문, 숫자, 특수문자 포함 8자 이상"
-            value={password}
-            onChange={handlePw}
-          />
-        </div>
-        <div className="errorMessageWrap">
-          {!pwValid && password.length > 0 && (
-            <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
-          )}
-        </div>
+        <button onClick={onClickConfirmButton} disabled={notAllow} className="submitBtn">
+          가입하기
+        </button>
       </div>
-
-      <button onClick={onClickConfirmButton} disabled={notAllow} className="submitBtn">
-        가입하기
-      </button>
     </div>
   );
 };
