@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid'; 
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction'; // 추가
 import '../calendar/calendar.css';
+import { format } from 'date-fns'
 import Layout from '../Layout';
 
 class Calendar extends Component {
     state = {
         showModal: false,
         newEvent: {
-            title: '',
+            content_title: '',
             description: '',
+            location: '', // 추가: 일정의 장소 정보를 저장하는 상태 변수
             start: '',
             end: ''
         },
-        events: []
+        events: [],
+        selectedEvent: null, // 추가: 선택된 이벤트 정보를 저장하는 상태 변수
+        clickedPosition: null // 클릭한 위치 저장하는 상태 변수
     };
 
     openModal = () => {
@@ -37,13 +42,51 @@ class Calendar extends Component {
 
     handleSave = () => {
         const { newEvent } = this.state;
+        // 새 이벤트 생성
+        const event = {
+            title: `${newEvent.content_title}- ${newEvent.description}`, // 설명 나오게 하고 싶음 추가
+            start: newEvent.start,
+            end: newEvent.end,
+            location: newEvent.location // 추가: 일정의 장소 정보 추가
+        };
         this.setState((prevState) => ({
-            events: [...prevState.events, newEvent],
-            newEvent: { title: '', description: '', start: '', end: '' },
+            events: [...prevState.events, event],
+            newEvent: { content_title: '', description: '', location: '', start: '', end: '' }, // location 초기화
             showModal: false
         }));
     };
 
+    handleEventClick = (clickInfo) => {
+        const event = clickInfo.event;
+        const mouseX = clickInfo.jsEvent.clientX; // 클릭한 마우스의 x 좌표
+        const mouseY = clickInfo.jsEvent.clientY - 100; // 클릭한 마우스의 y 좌표에서 100을 뺌
+        this.setState({ selectedEvent: event, mouseX, mouseY });
+    };
+    
+    showEventDetails = () => {
+        const { selectedEvent, mouseX, mouseY } = this.state;
+        if (selectedEvent && mouseX !== undefined && mouseY !== undefined) {
+            console.log("Start Date:", selectedEvent.start);
+            console.log("End Date:", selectedEvent.end);
+            
+            const startDate = selectedEvent.start && format(selectedEvent.start, 'HH:mm', { timeZone: 'Asia/Seoul' });
+            const endDate = selectedEvent.end && format(selectedEvent.end, 'HH:mm', { timeZone: 'Asia/Seoul' });
+            
+            return (
+                <div className="event-details" style={{ position: 'absolute', left: mouseX, top: mouseY }}>
+                    <h2>{selectedEvent.title}</h2>
+                    <div className='time_place'>
+                    <p>장소: {selectedEvent.extendedProps && selectedEvent.extendedProps.location}</p> 
+                    <p>시간: {startDate} ~ {endDate}</p>
+                    </div>
+                    <button onClick={() => this.setState({ selectedEvent: null, mouseX: undefined, mouseY: undefined })}>닫기</button>
+                </div>
+            );
+        }
+        return null;
+    };
+    
+    
     render() {
         const { showModal, newEvent } = this.state;
         return (
@@ -53,50 +96,67 @@ class Calendar extends Component {
                     {showModal && (
                         <div className="modal">
                             <div className="modal-content">
-                                <span className="close" onClick={this.closeModal}>&times;</span>
                                 <input
                                     type="text"
-                                    name="title"
-                                    value={newEvent.title}
+                                    name="content_title"
+                                    value={newEvent.content_title}
                                     onChange={this.handleInputChange}
                                     placeholder="일정 제목"
+                                    className="title-input"
+                                />
+                                <div className="date-input-container">
+                                    <input
+                                        type="datetime-local"
+                                        name="start"
+                                        value={newEvent.start}
+                                        onChange={this.handleInputChange}
+                                        placeholder="시작 날짜"
+                                        className="date-input"
+                                    />
+                                    <span className="date-input-separator">~</span>
+                                    <input
+                                        type="datetime-local"
+                                        name="end"
+                                        value={newEvent.end}
+                                        onChange={this.handleInputChange}
+                                        placeholder="끝나는 날짜"
+                                        className="date-input"
+                                    />
+                                </div>
+                                <input
+                                    type="text" 
+                                    name="location" 
+                                    value={newEvent.location} 
+                                    onChange={this.handleInputChange}
+                                    placeholder="장소 입력" 
+                                    className="location-input" 
                                 />
                                 <input
+                                    className='description'
                                     type="text"
                                     name="description"
                                     value={newEvent.description}
                                     onChange={this.handleInputChange}
                                     placeholder="일정 설명"
                                 />
-                                <input
-                                    type="datetime-local"
-                                    name="start"
-                                    value={newEvent.start}
-                                    onChange={this.handleInputChange}
-                                    placeholder="시작 날짜"
-                                />
-                                <input
-                                    type="datetime-local"
-                                    name="end"
-                                    value={newEvent.end}
-                                    onChange={this.handleInputChange}
-                                    placeholder="끝나는 날짜"
-                                />
-                                <button onClick={this.handleSave}>저장</button>
+                                <button className='save' onClick={this.handleSave}>저장</button>
+                                <button className='close' onClick={this.closeModal}>닫기</button>
                             </div>
                         </div>
                     )}
-                    <div className="calendar" style={{ width: '1180px'}}>
+                    {this.showEventDetails()} {/* 클릭한 위치에 이벤트 정보 표시 */}
+                    <div className="calendar" style={{ width: '1180px' }}>
                         <FullCalendar
                             defaultView="dayGridMonth"
-                            plugins={[dayGridPlugin, timeGridPlugin]} // timeGridPlugin 추가
+                            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} // interactionPlugin 추가
                             events={this.state.events}
-                            contentHeight={550}
+                            contentHeight={570}
                             headerToolbar={{
                                 left: 'prev,next today',
                                 center: 'title',
-                                right: 'dayGridMonth,timeGridWeek,timeGridDay' // 모든 보기 포함
+                                right: 'dayGridMonth,timeGridWeek,timeGridDay'
                             }}
+                            eventClick={this.handleEventClick} // eventClick 이벤트 핸들러 추가
                         />
                     </div>
                 </div>
