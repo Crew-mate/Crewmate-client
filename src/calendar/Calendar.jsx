@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction'; // 추가
+import interactionPlugin from '@fullcalendar/interaction'; 
 import '../calendar/calendar.css';
 import { format } from 'date-fns'
 import Layout from '../Layout';
@@ -13,13 +13,13 @@ class Calendar extends Component {
         newEvent: {
             content_title: '',
             description: '',
-            location: '', // 추가: 일정의 장소 정보를 저장하는 상태 변수
+            location: '', 
             start: '',
             end: ''
         },
         events: [],
-        selectedEvent: null, // 추가: 선택된 이벤트 정보를 저장하는 상태 변수
-        clickedPosition: null // 클릭한 위치 저장하는 상태 변수
+        selectedEvent: null, 
+        clickedPosition: null 
     };
 
     openModal = () => {
@@ -47,11 +47,11 @@ class Calendar extends Component {
             title: `${newEvent.content_title}- ${newEvent.description}`, // 설명 나오게 하고 싶음 추가
             start: newEvent.start,
             end: newEvent.end,
-            location: newEvent.location // 추가: 일정의 장소 정보 추가
+            location: newEvent.location 
         };
         this.setState((prevState) => ({
             events: [...prevState.events, event],
-            newEvent: { content_title: '', description: '', location: '', start: '', end: '' }, // location 초기화
+            newEvent: { content_title: '', description: '', location: '', start: '', end: '' }, 
             showModal: false
         }));
     };
@@ -59,7 +59,7 @@ class Calendar extends Component {
     handleEventClick = (clickInfo) => {
         const event = clickInfo.event;
         const mouseX = clickInfo.jsEvent.clientX; // 클릭한 마우스의 x 좌표
-        const mouseY = clickInfo.jsEvent.clientY - 100; // 클릭한 마우스의 y 좌표에서 100을 뺌
+        const mouseY = clickInfo.jsEvent.clientY - 90; // 클릭한 마우스의 y 좌표에서 100을 뺌
         this.setState({ selectedEvent: event, mouseX, mouseY });
     };
     
