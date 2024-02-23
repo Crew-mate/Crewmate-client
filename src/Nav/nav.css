@@ -2,12 +2,11 @@
 
 .name {
   font-family: "Bebas Neue", sans-serif;
-  position:fixed;
+  position:absolute;
   color: #091F5B; 
   margin-left: 20%;
   font-size: 28px;
   margin-top: 15px;
-
 }
 .wrapNav {
   background-color: #fff; 
