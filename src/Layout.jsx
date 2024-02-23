@@ -1,12 +1,12 @@
 // Layout.js
 
 import React from 'react';
-import Home from './Home/nav'
+import Nav from './Nav/nav'
 
 function Layout({ children }) {
   return (
     <div>
-      <Home /> {/* 네비게이션 바 */}
+      <Nav /> {/* 네비게이션 바 */}
       {children} {/* 각 페이지 컴포넌트 */}
     </div>
   );
