@@ -52,21 +52,20 @@ class Calendar extends Component {
             place: newEvent.place ,
             description: newEvent.description
         };
-        this.setState((prevState) => ({
-            events: [...prevState.events, event],
-            newEvent: { title: '', startTime: '', endTime: '' , place: '', description: ''}, 
-            showModal: false
-        }));
         try {
             const response = await axios.post('http://localhost:5000/schdule', event);
             if (response.status === 201) {
                 alert('일정이 등록되었습니다');
+                this.setState((prevState) => ({
+                    events: [...prevState.events, event],
+                    newEvent: { title: '', startTime: '', endTime: '' , place: '', description: ''}, 
+                    showModal: false
+                }));
             }
         } catch (error) {
             alert('일정 등록에 실패하였습니다');
             console.log(error);
         }
-        
     };
 
     handleEventClick = (clickInfo) => {
@@ -113,7 +112,7 @@ class Calendar extends Component {
                                     type="text"
                                     name="title"
                                     value={newEvent.title}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleInputChange} v
                                     placeholder="일정 제목"
                                     className="title-input"
                                 />
