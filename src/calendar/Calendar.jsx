@@ -13,8 +13,8 @@ class Calendar extends Component {
         showModal: false,
         newEvent: {
             title: '',
-            startTime: '',
-            endTime: '',
+            start: '',
+            end: '',
             place: '', 
             description: '',
         },
@@ -41,26 +41,28 @@ class Calendar extends Component {
             }
         }));
     };
-
+    
     handleSave = async () => {
         const { newEvent } = this.state;
         // 새 이벤트 생성
         const event = {
             title: newEvent.title, // 설명 나오게 하고 싶음 추가
-            startTime: newEvent.startTime,
-            endTime: newEvent.endTime,
+            start: newEvent.start,
+            end: newEvent.end,
             place: newEvent.place ,
             description: newEvent.description
         };
+    
         try {
             const response = await axios.post('http://localhost:5000/schdule', event);
             if (response.status === 201) {
                 alert('일정이 등록되었습니다');
-                this.setState((prevState) => ({
+                this.setState(prevState => ({
                     events: [...prevState.events, event],
-                    newEvent: { title: '', startTime: '', endTime: '' , place: '', description: ''}, 
+                    newEvent: { title: '', start: '', end: '', place: '', description: '' },
                     showModal: false
                 }));
+                
             }
         } catch (error) {
             alert('일정 등록에 실패하였습니다');
@@ -78,11 +80,11 @@ class Calendar extends Component {
     showEventDetails = () => {
         const { selectedEvent, mouseX, mouseY } = this.state;
         if (selectedEvent && mouseX !== null && mouseY !== null) {
-            console.log("Start Date:", selectedEvent.startTime);
-            console.log("End Date:", selectedEvent.endTime);
+            console.log("Start Date:", selectedEvent.start);
+            console.log("End Date:", selectedEvent.end);
             
-            const startDate = selectedEvent.startTime && format(selectedEvent.startTime, 'HH:mm', { timeZone: 'Asia/Seoul' });
-            const endDate = selectedEvent.endTime && format(selectedEvent.endTime, 'HH:mm', { timeZone: 'Asia/Seoul' });
+            const startDate = selectedEvent.start && format(selectedEvent.start, 'HH:mm', { timeZone: 'Asia/Seoul' });
+            const endDate = selectedEvent.end && format(selectedEvent.end, 'HH:mm', { timeZone: 'Asia/Seoul' });
             
             return (
                 <div className="event-details" style={{ position: 'absolute', left: mouseX, top: mouseY }}>
@@ -119,8 +121,8 @@ class Calendar extends Component {
                                 <div className="date-input-container">
                                     <input
                                         type="datetime-local"
-                                        name="startTime"
-                                        value={newEvent.startTime}
+                                        name="start"
+                                        value={newEvent.start}
                                         onChange={this.handleInputChange}
                                         placeholder="시작 날짜"
                                         className="date-input"
@@ -128,8 +130,8 @@ class Calendar extends Component {
                                     <span className="date-input-separator">~</span>
                                     <input
                                         type="datetime-local"
-                                        name="endTime"
-                                        value={newEvent.endTime}
+                                        name="end"
+                                        value={newEvent.end}
                                         onChange={this.handleInputChange}
                                         placeholder="끝나는 날짜"
                                         className="date-input"
