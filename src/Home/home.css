@@ -55,7 +55,6 @@ html{
 }
 
 
-
 .what_crewmate h3{
   text-align: left;
   margin-left: 20%;
@@ -92,10 +91,9 @@ html{
   display: flex;
   align-items: center;
   padding-bottom: 8%;
-
 }
 .cal_content{
-  margin-left: 23%;
+  margin-left: 20%;
 }
 
 .cal_content_title{
@@ -106,5 +104,5 @@ html{
 
 
 .cal_content_wrap img{
-  margin-left: 7%;
+  margin-left: 5%;
 }
