@@ -41,7 +41,20 @@ class Calendar extends Component {
             }
         }));
     };
-    
+    componentDidMount() {
+        this.fetchEvents(); 
+    }
+
+    fetchEvents = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/schdule'); 
+            const events = response.data;
+            this.setState({ events });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     handleSave = async () => {
         const { newEvent } = this.state;
         // 새 이벤트 생성
