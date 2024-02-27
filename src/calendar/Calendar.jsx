@@ -6,20 +6,22 @@ import interactionPlugin from '@fullcalendar/interaction';
 import '../calendar/calendar.css';
 import { format } from 'date-fns'
 import Layout from '../Layout';
+import axios from 'axios';
 
 class Calendar extends Component {
     state = {
         showModal: false,
         newEvent: {
-            content_title: '',
-            description: '',
-            location: '', 
+            title: '',
             start: '',
-            end: ''
+            end: '',
+            place: '', 
+            description: '',
         },
         events: [],
         selectedEvent: null, 
-        clickedPosition: null 
+        mouseX: null,
+        mouseY: null,
     };
 
     openModal = () => {
@@ -39,21 +41,46 @@ class Calendar extends Component {
             }
         }));
     };
+    componentDidMount() {
+        this.fetchEvents(); 
+    }
 
-    handleSave = () => {
+    fetchEvents = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/schdule'); 
+            const events = response.data;
+            this.setState({ events });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    handleSave = async () => {
         const { newEvent } = this.state;
         // 새 이벤트 생성
         const event = {
-            title: `${newEvent.content_title}- ${newEvent.description}`, // 설명 나오게 하고 싶음 추가
+            title: newEvent.title, // 설명 나오게 하고 싶음 추가
             start: newEvent.start,
             end: newEvent.end,
-            location: newEvent.location 
+            place: newEvent.place ,
+            description: newEvent.description
         };
-        this.setState((prevState) => ({
-            events: [...prevState.events, event],
-            newEvent: { content_title: '', description: '', location: '', start: '', end: '' }, 
-            showModal: false
-        }));
+    
+        try {
+            const response = await axios.post('http://localhost:5000/schdule', event);
+            if (response.status === 201) {
+                alert('일정이 등록되었습니다');
+                this.setState(prevState => ({
+                    events: [...prevState.events, event],
+                    newEvent: { title: '', start: '', end: '', place: '', description: '' },
+                    showModal: false
+                }));
+                
+            }
+        } catch (error) {
+            alert('일정 등록에 실패하였습니다');
+            console.log(error);
+        }
     };
 
     handleEventClick = (clickInfo) => {
@@ -65,7 +92,7 @@ class Calendar extends Component {
     
     showEventDetails = () => {
         const { selectedEvent, mouseX, mouseY } = this.state;
-        if (selectedEvent && mouseX !== undefined && mouseY !== undefined) {
+        if (selectedEvent && mouseX !== null && mouseY !== null) {
             console.log("Start Date:", selectedEvent.start);
             console.log("End Date:", selectedEvent.end);
             
@@ -76,10 +103,10 @@ class Calendar extends Component {
                 <div className="event-details" style={{ position: 'absolute', left: mouseX, top: mouseY }}>
                     <h2>{selectedEvent.title}</h2>
                     <div className='time_place'>
-                    <p>장소: {selectedEvent.extendedProps && selectedEvent.extendedProps.location}</p> 
+                    <p>장소: {selectedEvent.extendedProps && selectedEvent.extendedProps.place}</p> 
                     <p>시간: {startDate} ~ {endDate}</p>
                     </div>
-                    <button onClick={() => this.setState({ selectedEvent: null, mouseX: undefined, mouseY: undefined })}>닫기</button>
+                    <button onClick={() => this.setState({ selectedEvent: null, mouseX: null, mouseY: null })}>닫기</button>
                 </div>
             );
         }
@@ -98,9 +125,9 @@ class Calendar extends Component {
                             <div className="modal-content">
                                 <input
                                     type="text"
-                                    name="content_title"
-                                    value={newEvent.content_title}
-                                    onChange={this.handleInputChange}
+                                    name="title"
+                                    value={newEvent.title}
+                                    onChange={this.handleInputChange} v
                                     placeholder="일정 제목"
                                     className="title-input"
                                 />
@@ -125,11 +152,11 @@ class Calendar extends Component {
                                 </div>
                                 <input
                                     type="text" 
-                                    name="location" 
-                                    value={newEvent.location} 
+                                    name="place" 
+                                    value={newEvent.place} 
                                     onChange={this.handleInputChange}
                                     placeholder="장소 입력" 
-                                    className="location-input" 
+                                    className="place-input" 
                                 />
                                 <input
                                     className='description'
@@ -147,7 +174,7 @@ class Calendar extends Component {
                     {this.showEventDetails()} {/* 클릭한 위치에 이벤트 정보 표시 */}
                     <div className="calendar" style={{ width: '1180px' }}>
                         <FullCalendar
-                            defaultView="dayGridMonth"
+                            initialView="dayGridMonth" // 수정된 부분
                             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} // interactionPlugin 추가
                             events={this.state.events}
                             contentHeight={570}
