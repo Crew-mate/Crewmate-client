@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.join_club_name{
+  color: #091F5B;
+  background-color: #fff;
+  text-align: center;
+  margin-top: 1%;
+  font-size: 45px;
+}
+.wrap_join_cpu{
+  background-color: #BAD6EB;
+  text-align: left;
+  align-items: left;
+  height: 1000px;
+  font-family: "Bebas Neue", sans-serif;
+  color: #091F5B;
+  font-weight: 500;
+}
+
+.join_cpu_content{
+  margin-left: 22%;
+  font-weight: 800;
+  
+}
+
+.join_name,
+.join_number,
+.join_call,
+.why_join,
+.another_content{
+  margin-top: 5%;
+  margin-left: 1%;
+
+}
+
+.join_name_input,
+.join_number_input,
+.join_call_input,
+.why_join_input,
+.another_content_input{
+  margin-bottom: 3%;
+  border-radius: 10px;
+  display: flex;
+  padding: 15px;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 74%);
+  border: 1px solid #e2e0e0;
+  width: 25%;
+}
+
+.why_join_input,
+.another_content_input{
+  width: 50%;
+  padding: 50px;
+  text-decoration: none;
+  resize: none;
+}
+
+.joining{
+  background-color: #091F5B;
+  color: #fff;
+  padding: 10px;
+  width: 10%;
+  border-radius: 7px;
+  font-size: 15px;
+  margin-left: 48%;
+}

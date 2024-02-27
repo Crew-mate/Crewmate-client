@@ -59,9 +59,7 @@ export default function Login() {
 
         <div className="contentWrap">
           <div className="inputTitle">이메일 주소</div>
-          <div
-            className="inputWrap"
-          >
+          <div className="inputWrap">
             <input
               className="input"
               type="text"
