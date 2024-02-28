@@ -3,8 +3,26 @@ import Layout from "../Layout";
 import '../Home/home.css';
 import mainImage from '../assets/home_logo.svg';
 import home_cal from '../assets/home_cal.svg';
+import Slider from "react-slick";
+import { useState } from "react";
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const settings = {
+    className: "center",
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 5,
+    swipeToSlide: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 1000,
+    dots:true,
+    centerMode: true, //슬라이트 크기조정
+    beforeChange: (current, next) => setCurrentSlide(next),
+  };
+
   return (
     <Layout>
       <div className="wrapHome">
@@ -34,8 +52,38 @@ export default function Home() {
             <h1 className="cal_content_title">효율적인 동아리 관리 <br />가능합니다!</h1>
             <span>달력으로 동아리 일정을 간편하게 확인 할 수 있어요.</span>
           </div>
-
           <img src={home_cal} style={{ marginTop: '10%' }} />
+        </div>
+        <div className="home-slider-container" slide="custom-slide">
+          <Slider {...settings}>
+            <div className="slide1">
+              <h3>1</h3>
+            </div>
+            <div className="slide1">
+              <h3>2</h3>
+            </div>
+            <div className="slide1">
+              <h3>3</h3>
+            </div>
+            <div className="slide1">
+              <h3>4</h3>
+            </div>
+            <div className="slide1">
+              <h3>5</h3>
+            </div>
+            <div className="slide1">
+              <h3>6</h3>
+            </div>
+            <div className="slide1">
+              <h3>7</h3>
+            </div>
+            <div className="slide1">
+              <h3>8</h3>
+            </div>
+            <div className="slide1">
+              <h3>9</h3>
+            </div>
+          </Slider>
         </div>
       </div>
     </Layout>

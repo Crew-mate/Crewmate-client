@@ -5,18 +5,21 @@
   margin: 0 auto;
   position: relative;
 }
-.slick-slide {
-  width: 100%; 
+
+.slider-s .slick-slide:not(.slick-center){
+  width: 100%;
+  transform: scale(1); 
 }
-.cpu-slide {
+
+.club-slide {
   display: flex;
   align-items: center;
   background-color: #091F5B;
   height: 665px;
 }
 
-.slick-prev,
-.slick-next {
+.slick-prev1,
+.slick-next1 {
   font-size: 18px;
   line-height: 1;
   position: absolute;
@@ -28,15 +31,15 @@
   padding: 10px;
   border: none;
   border-radius: 50%;
+}
+
+.slick-prev1 {
+  margin-left: 15%;
   
 }
 
-.slick-prev {
-  margin-left: 16%;
-}
-
-.slick-next {
-  margin-right: 16%;
+.slick-next1 {
+  margin-left: 85%;
 }
 
 
@@ -48,7 +51,7 @@
   text-align: center;
 }
 
-.signup_cpu{
+.signup_club{
   background-color: #fff;
   border-radius: 15px;
   width: 130px;
@@ -60,39 +63,39 @@
   cursor: pointer;
 }
 
-.signup_cpu a{
+.signup_club a{
   text-decoration: none;
   color: #091F5B;
   font-weight: 800;
 }
 
-.cpu_content{
+.club_content{
   color: #fff;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   margin-left: 25%;
 }
 
-.cpu h2{
+.club h2{
   font-size: 50px;
 }
 
 
-.cpu{
+.club{
   display: flex;
   align-items: center;
   justify-content: space-between; 
   margin-top: 9%;
 }
 
-.cpu-image {
+.cpu_logo {
   margin-right: 20%; 
   margin-left: 20px;
   width: 15%;
   display: flex;
 }
 
-.cpu_content {
+.club_content {
   flex: 1; /* Take remaining space */
 }
 
@@ -103,6 +106,7 @@
 .cpu6,
 .cpu7{
   height: 665px;
+  width: 100%;
 }
 .cpu2{
   background-color: #4C63B6;
