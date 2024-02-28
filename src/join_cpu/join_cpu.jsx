@@ -39,7 +39,7 @@ export default function JoinCpu() {
     }
     const newApply={name,student_num,phone_num,answer1,answer2,answer3};
     try{
-      const response=await axios.post('http://localhost:5000/apply_form',newApply);
+      const response=await axios.post('http://localhost:5000/apply',newApply);
       if(response.status===201){
         alert('동아리 지원을 완료하였습니다');
         Navigate('/')
