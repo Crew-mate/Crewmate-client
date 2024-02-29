@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-html{
+html {
   height: 100%;
 }
 
 ::-webkit-scrollbar {
-  width: 12px; 
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EDF0F5; 
+  background: #EDF0F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #BAD6EB; 
-  border-radius: 6px; 
+  background: #BAD6EB;
+  border-radius: 6px;
 }
 
-.wrapHome{
+.wrapHome {
   height: 100%;
   position: absolute;
   margin-top: 8%;
@@ -26,14 +26,14 @@ html{
   background-repeat: no-repeat;
 }
 
-.intro{
+.intro {
   padding-top: 10px;
   margin-top: 100px;
   padding-bottom: 500px;
   background-color: #F7F2EC;
 }
 
-.intro_title{
+.intro_title {
   position: relative;
   font-family: "Bebas Neue", sans-serif;
   color: #091F5B;
@@ -43,24 +43,24 @@ html{
 }
 
 .what_crewmate h3,
-.crewmate_customer h3{
+.crewmate_customer h3 {
   position: absolute;
   font-family: "Bebas Neue", sans-serif;
   color: #091F5B;
   font-weight: 500;
   text-align: left;
-  font-size: 30px; 
+  font-size: 30px;
   top: 0;
   margin-top: 50%;
 }
 
 
-.what_crewmate h3{
+.what_crewmate h3 {
   text-align: left;
   margin-left: 20%;
 }
 
-.crewmate_customer h3{
+.crewmate_customer h3 {
   margin-left: 60%;
 }
 
@@ -72,8 +72,8 @@ html{
   font-weight: 500;
   text-align: left;
   line-height: 30px;
-  top: 50%; 
-  transform: translateY(-50%); 
+  top: 50%;
+  transform: translateY(-50%);
   margin-top: 38%;
 }
 
@@ -92,27 +92,28 @@ html{
   align-items: center;
   padding-bottom: 8%;
 }
-.cal_content{
+
+.cal_content {
   margin-left: 20%;
 }
 
-.cal_content_title{
+.cal_content_title {
   text-align: left;
   margin-top: 30%;
   font-size: 38px;
 }
 
 
-.cal_content_wrap img{
+.cal_content_wrap img {
   margin-left: 5%;
 }
 
-.home-slider-container{
+.home-slider-container {
   height: 500px;
   background-color: #BAD6EB;
 }
 
-.home-slider-container h3{
+.home-slider-container h3 {
   background-color: #fff;
   margin-top: 30%;
   width: 250px;
@@ -126,15 +127,55 @@ html{
 }
 
 .slick-slide:not(.slick-center) {
-  transform: scale(0.8); 
+  transform: scale(0.8);
 }
 
 .slick-center {
-  transform: scale(1); 
-} 
+  transform: scale(1);
+}
 
 .slick-prev,
 .slick-next {
-  display: none !important; 
+  display: none !important;
 }
 
+.intro_video {
+  height: 100%;
+  background-color: #6F96D1;
+}
+
+.intro_video h3 {
+  margin-top: 3%;
+  position: absolute;
+  margin-left: 38%;
+  font-size: 35px;
+}
+
+.video_img {
+  display: flex;
+  position: absolute;
+  height: 80%;
+  margin-top: 8%;
+  margin-left: 17%;
+}
+
+.effect_club_management{
+  background-color: #F7F2EC;
+  height: 60%;
+}
+
+.effect_title{
+  position: absolute;
+  margin-left: 10%;
+  font-size: 50px;
+  margin-top: 10%;
+  text-align: left;
+}
+
+.effect_content{
+  position: absolute;
+  margin-top: 11%;
+  text-align: left;
+  font-size: 15px;
+  margin-left: 50%;
+}
