@@ -3,6 +3,7 @@ import Layout from "../Layout";
 import '../Home/home.css';
 import mainImage from '../assets/home_logo.svg';
 import home_cal from '../assets/home_cal.svg';
+import ex_video from '../assets/ex_video.svg';
 import Slider from "react-slick";
 import { useState } from "react";
 
@@ -18,7 +19,7 @@ export default function Home() {
     autoplay: true,
     autoplaySpeed: 2000,
     speed: 1000,
-    dots:true,
+    dots: true,
     centerMode: true, //슬라이트 크기조정
     beforeChange: (current, next) => setCurrentSlide(next),
   };
@@ -84,6 +85,25 @@ export default function Home() {
               <h3>9</h3>
             </div>
           </Slider>
+        </div>
+        <div className="intro_video">
+          <div className="wrap_video">
+            <h3>크루메이트 소개 영상</h3>
+            <img src={ex_video} className="video_img" />
+          </div>
+        </div>
+        <div className="effect_club_management">
+          <p className="effect_title">간단하게 효율적인<br/> 동아리 관리가 <br/>가능한 곳</p>
+          <p className="effect_content">웹사이트를 통해 학생들은 자율 동아리 정보를 간편하게  확인하고,<br/> 
+            동아리 활동 일정을 효율적으로 관리할 수 있습니다.<br/> 
+            이를 통해 학생들은 자신에게 가장 적합한 활동을 빠르게 선택하고<br/> 
+            참여 할 수 있습니다. 웹사이트를  통해 학생들은 다양한 <br/>
+            자율 동아리에 쉽게 접근할 수 있으며, <br/>
+            동아리 신청 과정이 간편화됨으로써 학교 내 활동에 참여하는 <br/>
+            학생들의 수가 늘어날 것입니다. <br/>
+            이는 학생들이 더 많은 경험을 하는 데 도움이 될 것 입니다 <br/>
+            찾아 학교 생활을 더욱 풍부 하게 만들
+            수 있습니다.</p>
         </div>
       </div>
     </Layout>
