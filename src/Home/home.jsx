@@ -3,6 +3,9 @@ import Layout from "../Layout";
 import '../Home/home.css';
 import mainImage from '../assets/home_logo.svg';
 import home_cal from '../assets/home_cal.svg';
+import client from '../assets/client.svg';
+import server from '../assets/server.svg';
+import designer from '../assets/designer.svg';
 import ex_video from '../assets/ex_video.svg';
 import Slider from "react-slick";
 import { useState } from "react";
@@ -93,17 +96,32 @@ export default function Home() {
           </div>
         </div>
         <div className="effect_club_management">
-          <p className="effect_title">간단하게 효율적인<br/> 동아리 관리가 <br/>가능한 곳</p>
-          <p className="effect_content">웹사이트를 통해 학생들은 자율 동아리 정보를 간편하게  확인하고,<br/> 
-            동아리 활동 일정을 효율적으로 관리할 수 있습니다.<br/> 
-            이를 통해 학생들은 자신에게 가장 적합한 활동을 빠르게 선택하고<br/> 
-            참여 할 수 있습니다. 웹사이트를  통해 학생들은 다양한 <br/>
-            자율 동아리에 쉽게 접근할 수 있으며, <br/>
-            동아리 신청 과정이 간편화됨으로써 학교 내 활동에 참여하는 <br/>
-            학생들의 수가 늘어날 것입니다. <br/>
-            이는 학생들이 더 많은 경험을 하는 데 도움이 될 것 입니다 <br/>
+          <p className="effect_title">간단하게 <span className="effect-title-content">효율적인<br /> 동아리 관리</span>가 <br />가능한 곳</p>
+          <p className="effect_content">웹사이트를 통해 학생들은 자율 동아리 정보를 간편하게  확인하고,<br />
+            동아리 활동 일정을 효율적으로 관리할 수 있습니다.<br />
+            이를 통해 학생들은 자신에게 가장 적합한 활동을 빠르게 선택하고<br />
+            참여 할 수 있습니다. 웹사이트를  통해 학생들은 다양한 <br />
+            자율 동아리에 쉽게 접근할 수 있으며, <br />
+            동아리 신청 과정이 간편화됨으로써 학교 내 활동에 참여하는 <br />
+            학생들의 수가 늘어날 것입니다. <br />
+            이는 학생들이 더 많은 경험을 하는 데 도움이 될 것 입니다 <br />
             찾아 학교 생활을 더욱 풍부 하게 만들
             수 있습니다.</p>
+        </div>
+        <div className="made_people">
+          <div className="server_img">
+            <p>백엔드 개발자 <span>임효진</span></p>
+            <img src={server} />
+          </div>
+          <div className="client_img">
+            <p>프론트 개발자 <span>박화경</span></p>
+            <img src={client} />
+          </div>
+          <div className="designer_img">
+            <p>디자이너 <span>최재현</span></p>
+            <img src={designer} />
+          </div>
+
         </div>
       </div>
     </Layout>

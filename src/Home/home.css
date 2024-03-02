@@ -179,3 +179,29 @@ html {
   font-size: 15px;
   margin-left: 50%;
 }
+
+.effect-title-content{
+  font-weight: bold;
+}
+
+.made_people{
+  /* margin-bottom: 10px; */
+  margin-top: 7%
+}
+
+.server_img p,
+.client_img p,
+.designer_img p{
+  font-weight: bold;
+  font-size: 50px;
+  margin-right: 20%;
+}
+.designer_img p{
+  margin-right: 28%;
+}
+.server_img span,
+.client_img span,
+.designer_img span{
+  font-weight: 400;
+  font-size: 30px;
+}
