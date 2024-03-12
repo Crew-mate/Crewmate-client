@@ -4,7 +4,8 @@
 
 .club-slider-container {
   height: 500px;
-  background: linear-gradient(#fff, #6F96D1);
+  /* background: linear-gradient(#fff, #6F96D1); */
+  background-color: #BAD6EB;
 }
 
 .club-slider-container h3 {
@@ -28,6 +29,10 @@
   transform: scale(1);
 }
 
-
-
-
+.club-slider-container span{
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  padding: 3%;
+  padding-left: 6%;
+}

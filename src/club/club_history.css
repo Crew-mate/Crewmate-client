@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+
+.his-slider-container {
+  height: 500px;
+  /* background: linear-gradient(#fff, #6F96D1); */
+  background: linear-gradient( to right, #6F96D1 30%, #C8D7ED 60%, rgb(231, 231, 231) )
+
+}
+
+.his-slider-container h3 {
+  background-color: #fff;
+  margin-top: 30%;
+  width: 230px;
+  height: 330px;
+  border-radius: 20px;
+  margin-bottom: 25%;
+}
+
+.his-slider-container .slick-slide {
+  transition: transform 0.5s ease;
+}
+
+.his-slider-container .slick-slide:not(.slick-center) {
+  transform: scale(1);
+}
+
+.his-slider-container .slick-center {
+  transform: scale(1);
+}
+
+
+
+
