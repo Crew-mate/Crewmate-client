@@ -127,7 +127,7 @@ class Calendar extends Component {
                                     type="text"
                                     name="title"
                                     value={newEvent.title}
-                                    onChange={this.handleInputChange} v
+                                    onChange={this.handleInputChange} 
                                     placeholder="일정 제목"
                                     className="title-input"
                                 />

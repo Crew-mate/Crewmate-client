@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDF0F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BAD6EB;
+  border-radius: 6px;
+}
+
 .slider-container {
   width: 100%; 
   margin: 0 auto;
@@ -129,3 +142,60 @@
 .cpu7{
   background-color: #F7F2EC;
 }
+
+.show_cpu,
+.main-activities {
+  background-color: #F7F2EC;
+  font-family: "Bebas Neue", sans-serif;
+  padding-top: 20px; 
+  background-color: #F7F2EC;
+  height: 450px;
+}
+.cpu_title {
+  display: block;
+  margin-top: 20px; 
+  margin-left: 20%;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+
+.show_cpu p{
+  margin-left: 20%;
+  margin-top: 2%;
+}
+
+.pull_name_cpu{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.소개{
+  font-weight: 500;
+}
+
+.point{
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.main-activities{
+  background-color: #EDF0F5;
+}
+
+.main-activities h2{
+  margin-left: 20%;
+  font-size: 33px;
+}
+
+.main-activities span{
+  margin-left: 20%;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.main-activities p{
+  margin-left: 20%;
+}
+
+
