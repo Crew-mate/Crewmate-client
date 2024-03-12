@@ -1,207 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-html {
-  height: 100%;
-}
+  html {
+    height: 100%;
+  }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
+  
+  .wrapHome {
+    height: 100%;
+    position: absolute;
+    margin-top: 8%;
+    width: 100%;
+    text-align: center;
+    background-repeat: no-repeat;
+  }
 
-::-webkit-scrollbar-track {
-  background: #EDF0F5;
-}
+  .wrapHome img{
+    margin-bottom: 10%;
+  }
+  .home-slider-container {
+    height: 500px;
+    background: linear-gradient(#fff, #6F96D1);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #BAD6EB;
-  border-radius: 6px;
-}
+  .home-slider-container h3 {
+    background-color: #fff;
+    margin-top: 30%;
+    width: 250px;
+    height: 330px;
+    border-radius: 20px;
+    margin-bottom: 25%;
+  }
 
-.wrapHome {
-  height: 100%;
-  position: absolute;
-  margin-top: 8%;
-  width: 100%;
-  text-align: center;
-  background-repeat: no-repeat;
-}
+  .slick-slide {
+    transition: transform 0.5s ease;
+  }
 
-.intro {
-  padding-top: 10px;
-  margin-top: 100px;
-  padding-bottom: 500px;
-  background-color: #F7F2EC;
-}
+  .slick-slide:not(.slick-center) {
+    transform: scale(0.8);
+  }
 
-.intro_title {
-  position: relative;
-  font-family: "Bebas Neue", sans-serif;
-  color: #091F5B;
-  font-weight: 500;
-  text-align: center;
-  font-size: 40px;
-}
+  .slick-center {
+    transform: scale(1);
+  }
 
-.what_crewmate h3,
-.crewmate_customer h3 {
-  position: absolute;
-  font-family: "Bebas Neue", sans-serif;
-  color: #091F5B;
-  font-weight: 500;
-  text-align: left;
-  font-size: 30px;
-  top: 0;
-  margin-top: 50%;
-}
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
 
 
-.what_crewmate h3 {
-  text-align: left;
-  margin-left: 20%;
-}
-
-.crewmate_customer h3 {
-  margin-left: 60%;
-}
-
-.what_crewmate_content,
-.crewmate_customer_content {
-  position: absolute;
-  font-family: "Bebas Neue", sans-serif;
-  color: #091F5B;
-  font-weight: 500;
-  text-align: left;
-  line-height: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-top: 38%;
-}
-
-
-.what_crewmate_content {
-  margin-left: 20%;
-}
-
-.crewmate_customer_content {
-  margin-left: 60%;
-}
-
-.cal_content_wrap {
-  background-color: #EDF0F5;
-  display: flex;
-  align-items: center;
-  padding-bottom: 8%;
-}
-
-.cal_content {
-  margin-left: 20%;
-}
-
-.cal_content_title {
-  text-align: left;
-  margin-top: 30%;
-  font-size: 38px;
-}
-
-
-.cal_content_wrap img {
-  margin-left: 5%;
-}
-
-.home-slider-container {
-  height: 500px;
-  background-color: #BAD6EB;
-}
-
-.home-slider-container h3 {
-  background-color: #fff;
-  margin-top: 30%;
-  width: 250px;
-  height: 330px;
-  border-radius: 20px;
-  margin-bottom: 25%;
-}
-
-.slick-slide {
-  transition: transform 0.5s ease;
-}
-
-.slick-slide:not(.slick-center) {
-  transform: scale(0.8);
-}
-
-.slick-center {
-  transform: scale(1);
-}
-
-.slick-prev,
-.slick-next {
-  display: none !important;
-}
-
-.intro_video {
-  height: 100%;
-  background-color: #6F96D1;
-}
-
-.intro_video h3 {
-  margin-top: 3%;
-  position: absolute;
-  margin-left: 38%;
-  font-size: 35px;
-}
-
-.video_img {
-  display: flex;
-  position: absolute;
-  height: 80%;
-  margin-top: 8%;
-  margin-left: 17%;
-}
-
-.effect_club_management{
-  background-color: #F7F2EC;
-  height: 60%;
-}
-
-.effect_title{
-  position: absolute;
-  margin-left: 10%;
-  font-size: 50px;
-  margin-top: 10%;
-  text-align: left;
-}
-
-.effect_content{
-  position: absolute;
-  margin-top: 11%;
-  text-align: left;
-  font-size: 15px;
-  margin-left: 50%;
-}
-
-.effect-title-content{
-  font-weight: bold;
-}
-
-.made_people{
-  /* margin-bottom: 10px; */
-  margin-top: 7%
-}
-
-.server_img p,
-.client_img p,
-.designer_img p{
-  font-weight: bold;
-  font-size: 50px;
-  margin-right: 20%;
-}
-.designer_img p{
-  margin-right: 28%;
-}
-.server_img span,
-.client_img span,
-.designer_img span{
-  font-weight: 400;
-  font-size: 30px;
-}
