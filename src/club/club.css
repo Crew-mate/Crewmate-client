@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDF0F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BAD6EB;
+  border-radius: 6px;
+}
+
 .slider-container {
-  width: 100%; 
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
 
-.slider-s .slick-slide:not(.slick-center){
+.slider-s .slick-slide:not(.slick-center) {
   width: 100%;
-  transform: scale(1); 
+  transform: scale(1);
 }
 
 .club-slide {
@@ -35,7 +48,6 @@
 
 .slick-prev1 {
   margin-left: 15%;
-  
 }
 
 .slick-next1 {
@@ -45,13 +57,13 @@
 
 .slick-dots {
   position: absolute;
-  bottom: 0px; 
+  bottom: 0px;
   width: 100%;
   list-style: none;
   text-align: center;
 }
 
-.signup_club{
+.signup_club {
   background-color: #fff;
   border-radius: 15px;
   width: 130px;
@@ -63,40 +75,40 @@
   cursor: pointer;
 }
 
-.signup_club a{
+.signup_club a {
   text-decoration: none;
   color: #091F5B;
   font-weight: 800;
 }
 
-.club_content{
+.club_content {
   color: #fff;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   margin-left: 25%;
 }
 
-.club h2{
+.club h2 {
   font-size: 50px;
 }
 
 
-.club{
+.club {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
   margin-top: 9%;
 }
 
 .cpu_logo {
-  margin-right: 20%; 
+  margin-right: 20%;
   margin-left: 20px;
   width: 15%;
   display: flex;
 }
 
 .club_content {
-  flex: 1; /* Take remaining space */
+  flex: 1;
 }
 
 .cpu2,
@@ -104,28 +116,111 @@
 .cpu4,
 .cpu5,
 .cpu6,
-.cpu7{
+.cpu7 {
   height: 665px;
   width: 100%;
 }
-.cpu2{
+
+.cpu2 {
   background-color: #4C63B6;
 }
-.cpu3{
+
+.cpu3 {
   background-color: #6F96D1;
 }
 
-.cpu4{
+.cpu4 {
   background-color: #BAD6EB;
 }
-.cpu5{
+
+.cpu5 {
   background-color: #D0E4FF;
 }
 
-.cpu6{
+.cpu6 {
   background-color: #F2F1DF;
 }
 
-.cpu7{
+.cpu7 {
   background-color: #F7F2EC;
+}
+
+.show_cpu,
+.main-activities {
+  background-color: #F7F2EC;
+  font-family: "Bebas Neue", sans-serif;
+  padding-top: 20px;
+  background-color: #F7F2EC;
+  height: 530px;
+}
+
+.cpu_title {
+  display: block;
+  margin-top: 20px;
+  margin-left: 20%;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+
+.show_cpu p {
+  margin-left: 20%;
+  margin-top: 2%;
+}
+
+.pull_name_cpu {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.소개 {
+  font-weight: 500;
+}
+
+.point {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.main-activities {
+  background-color: #EDF0F5;
+  height: 580px;
+}
+
+.main-activities h2 {
+  margin-left: 13%;
+  font-size: 33px;
+}
+
+
+.activity_content p {
+  margin-left: 5%;
+  text-align: left;
+  color: #000;
+}
+
+
+.activity_content {
+  width: 70%;
+  background-color: #fff;
+  margin-left: 13%;
+  border-radius: 7px;
+  color: white;
+  height: 28%;
+  text-align: center;
+  box-shadow: 5px 5px 5px rgb(144, 144, 144);
+  margin-bottom: 5%;
+  padding-top: 5px;
+}
+
+.activity_img {
+  position: absolute;
+  width: 13%;
+  margin-left: 21%;
+  margin-top: 11px;
+}
+
+.act_title{
+  font-size: 20px;
+  margin-top: 1%;
 }

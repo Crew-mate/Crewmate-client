@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+
+.club-slider-container {
+  height: 500px;
+  /* background: linear-gradient(#fff, #6F96D1); */
+  background-color: #BAD6EB;
+}
+
+.club-slider-container h3 {
+  background-color: #fff;
+  margin-top: 30%;
+  width: 250px;
+  height: 330px;
+  border-radius: 20px;
+  margin-bottom: 25%;
+}
+
+.club-slider-container .slick-slide {
+  transition: transform 0.5s ease;
+}
+
+.club-slider-container .slick-slide:not(.slick-center) {
+  transform: scale(0.8);
+}
+
+.club-slider-container .slick-center {
+  transform: scale(1);
+}
+
+.club-slider-container span{
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  padding: 3%;
+  padding-left: 6%;
+}

@@ -21,7 +21,7 @@ function Nav() {
             {isDropdownOpen && (
               <div className="dropdown-content">
                 <Link to="/Club">전체 페이지</Link>
-                <Link to="/Club">cpu</Link>
+                <Link to="/Club_cpu">cpu</Link>
                 <Link to="/Club">Miven</Link>
                 <Link to="/Club">App and Me</Link>
                 <Link to="/Club">Miven</Link>

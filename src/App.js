@@ -5,6 +5,7 @@ import SignUp from './SignUp/SignUp';
 import Calendar from './calendar/Calendar';
 import Home from './Home/home';
 import Club from './club/club';
+import Club_cpu from './club_cpu/club_cpu';
 import Join_cpu from './join_cpu/join_cpu'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/home" element={<Home />} /> 
         <Route path="/club" element={<Club />} /> 
+        <Route path="/club_cpu" element={<Club_cpu />} /> 
         <Route path="/join_cpu" element={<Join_cpu />} /> 
       </Routes>
     </Router>
