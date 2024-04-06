@@ -13,6 +13,7 @@ export default function JoinCpu() {
   const [answer3, setanswer3] = useState("");
   const [errors, setErrors] = useState({});
 
+  //지원 폼 버튼
   const handleSubmission = async() => {
     const errors = {};
     if (!name) {
